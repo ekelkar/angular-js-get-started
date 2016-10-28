@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app='githubViewer'>
+
+<head>
+  <script data-require="angular.js@1.5.8" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js"></script>
+  <script src="httpTest.js"></script>
+</head>
+
+<body ng-controller="mainController">
+  <h1>{{message}}</h1>
+  <form name="searchUser" ng-submit="search(username)">
+    <input type="search" required placeholder="Username to find" ng-model="username">
+    <button type="submit" value="Search">Search</button>
+  </form>
+
+  <div>
+    {{error}}
+  </div>
+
+  <div>
+    <div>
+      Name: {{user.name}}
+    </div>
+    <div>
+      Location: {{user.location}}
+    </div>
+    <div>
+      <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+    </div>
+  </div>
+</body>
+ 
+</html>
