@@ -4,7 +4,20 @@
       'data': {
         'name': 'Erin Kelkar',
         'location': 'Peachtree Corners, GA',
-        'avatar_url': 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/6/000/27a/27d/18888da.jpg'
+        'avatar_url': 'https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/6/000/27a/27d/18888da.jpg',
+        'repos': [{
+          'name': 'Repo 1',
+          'stargazers_count': 5,
+          'language': 'javascript'
+        }, {
+          'name': 'Repo 2',
+          'stargazers_count': 10,
+          'language': 'c'
+        }, {
+          'name': 'Repo 3',
+          'stargazers_count': 30,
+          'language': 'PL/1'
+        }]
       }
     },
     'jkelkar': {
@@ -23,7 +36,7 @@
     }
   };
 
-  var httpTest = function($q) { 
+  var httpTest = function($q, $log) {
 
     // In order to simulate an async http call, getUser must return a
     // the data in a promise.
@@ -32,21 +45,31 @@
       // replace new Promise with angular promises $q
       return $q(function(resolve, reject) {
         if (userData[username]) { // This user exists.
-          console.log('userData:', userData[username]);
-          resolve(userData[username]);
+          $log.log('userData:', userData[username]);
+          resolve(userData[username].data);
         } else {
-          console.log('reject');
+          $log.log('reject');
           // Removed sending an Error object
           // Would that be better 
           // reject(Error('User not found'));
-          
-               reject('User not found');
+
+          reject('User not found');
         }
       })
     };
 
+    var getRepos = function(username) {
+      return $q(function(resolve, reject) {
+        if (userData[username].data.repos) {
+          $log.log('repos:', userData[username].data.repos);
+          resolve(userData[username].data.repos);
+        }
+      });
+    };
+
     return ({
-      getUser: getUser
+      getUser: getUser,
+      getRepos: getRepos
     });
   };
 
