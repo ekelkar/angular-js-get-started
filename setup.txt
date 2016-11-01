@@ -1,0 +1,8 @@
+To work correctly, pages must be served from an http server
+
+download and install http-server (npm install http-server -g) 
+(-g for global install)
+
+start server (http-server -p 3333) (3333 is port)
+
+access in browser (e.g., localhost:3333)
