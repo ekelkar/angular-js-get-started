@@ -7,7 +7,6 @@
     var onReposComplete = function (response) {
       $log.log('Got repos');
       $scope.repos = response;
-      $location.hash('userDetail');
     };
 
     var onUserComplete = function (response) {
@@ -29,7 +28,7 @@
 
     // httpTest returns mock data
     // use github to get the actual data    
-    var githubmod = httpTest; // or github
+    var githubmod = github; // httpTest; // or github
 
     console.log('search for user: ', $routeParams.username);
     $scope.username = $routeParams.username;

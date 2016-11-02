@@ -31,13 +31,14 @@
       }
     };
 
-    $scope.username = "ekelkar";
+    $scope.username = "angular";
     $scope.countDownTimer = 20; // set count to test the interval service
 
     var timer = $interval(decrementCountDownTimer, 1000, $scope.countDownTimer);
     console.log('Executing main controller')
   };
 
+  console.log('setting up main controller');
   app.controller("mainController", mainController);
 
 }());

@@ -5,10 +5,6 @@
 
   app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/test', {
-        templateUrl: 'test.html',
-        controller: 'testController'
-      })
       .when('/main', {
         templateUrl: 'main.html',
         controller: 'mainController'
@@ -17,6 +13,10 @@
         templateUrl: 'user.html',
         controller: 'userController'
       })
+      .when('/repo/:username/:reponame', {
+        templateUrl: 'repo.html',
+        controller: 'repoController'
+      })
       .otherwise({
         redirectTo: '/main'
       });
@@ -24,9 +24,9 @@
       enabled: true //,
         // requireBase: false
     });
-  });
-  console.log("setting up app");
-  console.log("app: ", app);
 
+    console.log("setting up app");
+    console.log("app: ", app);
+  });
 
 }());

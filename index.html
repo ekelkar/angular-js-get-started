@@ -9,6 +9,7 @@
   <script src="app.js"></script>
   <script src="mainController.js"></script>
   <script src="userController.js"></script>
+  <script src="repoController.js"></script>
   <script src="httpTest.js"></script>
   <script src="github.js"></script>
 
@@ -16,21 +17,9 @@
 
 <body>
   <h1>Github Viewer</h1>
-  <!--div ng-show="countDownTimer">
-    Can you search before the time expires?
-    <h2>Countdown: {{countDownTimer}}</h2>
-  </div>
-  <form name="searchUser" ng-submit="search(username)">
-    <input type="search" required placeholder="Username to find" ng-model="username">
-    <button type="submit" value="Search">Search</button>
-  </form-->
-
-  <!--div ng-show="error">
-    {{error}}
-  </div>
-
-  <ng-include src="'userDetail.html'"></ng-include-->
-  <ng-view></ng-view>
+  <!-- Either of the following work -->
+  <div ng-view></div>
+  <!--ng-view></ng-view-->
 
 </body>
 
