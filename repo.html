@@ -1,0 +1,16 @@
+<div ng-show="error">
+  {{error}}
+</div>
+<div ng-show="!error">
+  <div>Repo Name: {{reponame}}</div>
+  <div>Issues: {{repo.open_issues}}</div>
+  <div>Contributors:</div>
+  <div ng-repeat="contributor in contributors">
+    <img ng-src="{{contributor.avatar_url}}" title="{{contributor.login}}">
+    <div>{{contributor.login}}</div>
+  </div>
+  <!--div><img ng-src="{{user.avatar_url}}" title="{{user.name}}"></div-->
+</div>
+
+<div><a ng-href="/user/{{username}}">Back to User Info</a></div>
+<div><a href='/#'>Back to Search</a></div>
